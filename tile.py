@@ -1,4 +1,5 @@
 from enum import Enum
+import uuid
 
 class Color(Enum):
     NONE = 0
@@ -8,10 +9,11 @@ class Color(Enum):
     RED = 4
 
 class Tile():
-    def __init__(self, color, value, visible=False):
+    def __init__(self, color, value, available=True, in_play=False):
         self.color = Color(color)
         self.value = value
-        self.visible = visible
+        self.available = available
+        self.in_play = in_play
 
     def __repr__(self):
         return "{}:{}".format(self.color.name, self.value)
