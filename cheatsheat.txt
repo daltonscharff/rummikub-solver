@@ -1,0 +1,6 @@
+docker image ls:    shows built images
+docker container ls:    shows running containers
+
+BUILD:  docker build -t rummikub .
+RUN:    docker run -d -p 4000:80 -v "C:/Users/Dalton Scharff/Documents/Development/rummikub_solver":/app rummikub
+END:    docker container stop <name>
