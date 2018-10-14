@@ -1,4 +1,4 @@
-from tile import Tile, Color
+from classes.tile import Tile, Color
 
 class Pool():
     def __init__(self):

@@ -1,4 +1,4 @@
-from pool import Pool
+from classes.pool import Pool
 import random
 
 class Scenario():
