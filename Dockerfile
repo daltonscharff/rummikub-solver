@@ -1,7 +1,8 @@
 FROM python:3.7-slim
 
-WORKDIR /app
-COPY . /app
+ADD . /code
+WORKDIR /code
+# RUN pip install --upgrade pip
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 EXPOSE 80
-CMD ["python", "main.py"]
+CMD ["python", "run.py"]
