@@ -7,5 +7,6 @@ RUN:    docker run -d -p 4000:80 -v "C:/Users/Dalton Scharff/Documents/Developme
 END:    docker container stop <name>
 
 # USING DOCKER COMPOSE
+BUILD:  docker-compose build
 RUN:    docker-compose up
 END:    docker-compose down
