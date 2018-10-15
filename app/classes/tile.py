@@ -16,4 +16,13 @@ class Tile():
         self.in_play = in_play
 
     def __repr__(self):
-        return "{}:{}".format(self.color.name, self.value)
+        return '{}_{}'.format(self.color.name, self.value)
+        
+    def __eq__(self, other):
+        return self.color == other.color and self.value == other.value
+    
+    def equals_color(self, other):
+        return self.color == other.color
+
+    def equals_value(self, other):
+        return self.value == other.value
