@@ -39,7 +39,7 @@ class Pool():
             'BLUE': [],
             'ORANGE': [],
             'RED': [],
-            'NONE': []
+            'JOKER': []
         }
         for tile in self.tiles:
             colors[tile.color.name].append(tile)
@@ -53,49 +53,26 @@ class Pool():
 
         return values
 
-    def place_jokers_in_groups(self, sets, values):
-        if len(self.tiles) == len(values[0]):
-            raise ValueError('Jokers cannot be placed without other groups')
-
-        joker_stack = values[0].copy()
-        groups_ge_3 = [s for s in sets if len(s) >= 3]
-        groups_eq_2 = [s for s in sets if len(s) == 2]
-        groups_eq_1 = [s for s in sets if len(s) == 1]
-        
-        while len(joker_stack) > 0:
-            groups_of_1_and_2 = groups_eq_2 + groups_eq_1
-            max_set_index = -1
-            for i in range(len(groups_of_1_and_2)):     
-                # Implementing a way to get rid of the most cards would be a more win-centric strategy
-                max_set_index = -1
-                max_sum = -1
-                current_sum = sum([tile.value for tile in groups_of_1_and_2[i]])
-                if current_sum > max_sum:
-                    max_sum = current_sum
-                    max_set_index = i
-            if max_set_index != -1:
-                while len(groups_of_1_and_2[max_set_index]) < 3 and len(joker_stack) > 0:
-                    groups_of_1_and_2[max_set_index].update([joker_stack.pop()])
-                if len(groups_of_1_and_2[max_set_index]) >= 3:
-                    groups_ge_3.append(groups_of_1_and_2.pop(max_set_index))
-            else:
-                while len(joker_stack) > 0:
-                    for group in groups_ge_3:
-                        group.update(joker_stack.pop())
-                        if len(joker_stack) == 0:
-                            break
-
-        return groups_ge_3
-
     def get_groups(self):
         values = self.value_sort()
-        sets = [set(values[i]) for i in range(1, len(values)) if len(values[i]) > 0]
-        groups = self.place_jokers_in_groups(sets, values)
-        
+        groups = [set(values[i]) for i in range(1, len(values)) if len(values[i]) > 0]
+
         return groups
 
     def get_runs(self):
-        pass
+        values = self.value_sort()
+        number_groupings = []
+
+        runs = []
+        '''
+        1. get adjacent number groups (e.g., [[1,2],[4,5,6], ...])
+        2. build runs array
+            a. start with empty array
+            b. if number has multiple tiles, duplicate the original array(s) that many times
+            c. append first tile to first fraction, second to second fraction, etc.
+        '''
+
+        return values
 
     def get_sets(self):
         pass

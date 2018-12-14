@@ -20,5 +20,7 @@ def generate_hand(pool=Pool(), amount=14):
 
 
 my_hand = generate_hand()
-print(my_hand.tiles)
-print(my_hand.get_groups())
+
+print(f"Hand:\t{my_hand.tiles}")
+print(f"Groups:\t{my_hand.get_groups()}")
+print(f"Runs:\t{my_hand.get_runs()}")
