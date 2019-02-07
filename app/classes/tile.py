@@ -1,12 +1,5 @@
-from enum import Enum
+from classes.color import Color
 import uuid
-
-class Color(Enum):
-    JOKER = 0
-    BLACK = 1
-    BLUE = 2
-    ORANGE = 3
-    RED = 4
 
 class Tile():
     def __init__(self, color, value, available=True, in_play=False):

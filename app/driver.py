@@ -1,5 +1,4 @@
-from classes.pool import Pool
-from classes.tile import Tile
+from classes import Pool, Tile
 from collections import Counter
 import random
 
@@ -19,7 +18,9 @@ def generate_hand(pool=Pool(), amount=14):
 #         return False
 
 
-my_hand = generate_hand()
+# my_hand = generate_hand()
+example = [Tile(2, 1), Tile(3, 1), Tile(4, 2), Tile(2, 3), Tile(1, 3), Tile(4, 3), Tile(4, 5)]
+my_hand = Pool(example)
 
 print(f"Hand:\t{my_hand.tiles}")
 print(f"Groups:\t{my_hand.get_groups()}")
